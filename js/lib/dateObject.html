@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间对象</title>
+	<script type="text/javascript">
+		var mydate = new Date();
+		console.log(mydate);
+		console.dir(mydate.constructor);
+		console.log(mydate.getFullYear());
+		console.log(mydate.getMonth());
+		console.log(mydate.getDate());
+		console.log(mydate.getDay());
+		console.log(mydate.setDate(1));
+		console.log(mydate.setMonth(3));
+		console.log(mydate);
+		console.log(mydate.getDay());
+		console.log(mydate.setDate(mydate.getDate()+7));
+		console.log(mydate.setDate(mydate.getDate()+7));
+		console.log(mydate.setDate(mydate.getDate()+7));
+		console.log(mydate.setDate(mydate.getDate()+7));
+		console.log(mydate.setDate(mydate.getDate()+7));
+		console.log(mydate.getDay());
+		console.log(mydate);
+		console.log(Date.parse("Jul 8, 2005"));
+		var a = 0,start;
+		var april = new Date();
+		april.setMonth(3);
+		april.setDate(1);
+		while(april.getDay() != 3) {
+			april.setDate(april.getDate() + 1);
+		}
+		start = april.getDate();
+		console.log(start);
+		while(april.getMonth() == 3) {
+			a++;
+			april.setDate(april.getDate()+7)
+		}
+		console.log(a);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

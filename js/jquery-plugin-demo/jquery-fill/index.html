@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>select控件--ajax填充</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script src="jquery.fill.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="container">
+		<select name="some_name[]" id="myselect" class="parents" multiple>
+			<option value="1">value1</option>
+			<option value="2">value2</option>
+			<option value="3">value3</option>
+		</select>
+		<select name="some_name[]" id="myselect2" class="parents">
+			<option value="4">value1</option>
+			<option value="5">value2</option>
+			<option value="6">value3</option>
+		</select>
+		<select name="cc" id="subselect">
+			<option value="0">请先选择第一级</option>
+		</select>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		$("#myselect").fill({
+			subElement: "#subselect",
+			url:"json.php"
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM示例</title>
+	<script type="text/javascript">
+		var newWindow;
+		function moveby() {
+			window.moveBy(10,10);
+		}
+		function moveto() {
+			window.moveTo(10,10);
+		}
+		function newmoveby(win) {
+			win.moveBy(10,10);
+		}
+		function resizeby() {
+			window.resizeBy(10,10);
+		}
+		function resizeto() {
+			window.resizeTo(500,500);
+		}
+		function doOpen() {
+			newWindow = window.open("about:blank","my163","height=500,width=500,resizable=no");
+			newWindow.moveTo(0,0);
+			newWindow.resizeTo(screen.availWidth,screen.availHeight);
+			console.log(newWindow.opener == window);
+		}
+		console.log(window.screenX);
+		console.log(window.screenY);
+		console.log(window.innerWidth);
+		console.log(window.innerHeight);
+		console.log(window.outerHeight);
+		console.log(window.outerHeight);
+		window.defaultStatus = "hello world!";
+		console.log(history.length);
+		console.log(document.referrer);
+		console.log(document.title);
+		console.log(document.URL);
+		console.log(location.hash);
+		console.log(location.host);
+		console.log(location.hostname);
+		console.log(location.href);
+		console.log(location.pathname);
+		console.log(location.port);
+		console.log(location.protocol);
+		console.log(location.search);
+		console.log(navigator.appVersion);
+		console.log(navigator.appName);
+		console.log(navigator.language);
+		console.log(navigator.userAgent);
+		console.log("当前屏幕分辩率是："+screen.width+"*"+screen.height);
+		console.log("当前屏幕可用范围是："+screen.availWidth+"*"+screen.availHeight);
+		console.log("当前屏幕颜色是："+screen.colorDepth+"位");
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js\" type=\"text/javascript\">"+"</scr"+"ipt>")
+	</script>
+		<input type="button" value="点击触发moveby" onclick="moveby()" />
+		<input type="button" value="点击触发moveto" onclick="moveto()" />
+		<input type="button" value="点击触发resizeby" onclick="resizeby()" />
+		<input type="button" value="点击触发resizeto" onclick="resizeto()" />
+		<input type="button" value="点击触发open" onclick="doOpen()" />
+		<input type="button" value="点击触发newmoveby" onclick="newmoveby(newWindow)" />
+		<a href="#ff" onmouseover="window.status='hello'" name="a">example</a><br />
+		<a href="javascript:history.back(-1);" name="b">解决兼容问题的返回</a>
+		<script type="text/javascript">
+			console.log(document.anchors);
+			console.log(document.links.a);
+			console.log($);
+			//$(document).ready(function(){
+			//	document.write("remove all");
+			//});
+		</script>
+</body>
+</html>

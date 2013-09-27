@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery插件示例</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script>
+	//插件开始
+	//这里传递了两个参数，可以只传$。index在这里是演示用的。
+	(function($,index) {
+	 // 主函数
+	 // 替换 PLUGIN 为你的命名
+	 //console.log(index);
+	 if (index) {
+		 $.fn.PLUGIN = function(options) {
+			 // 用自己的设置来替换插件的默认设置
+			 var opts = $.extend({}, $.fn.PLUGIN.defaults, options);
+			 // 循环给当前对象works，并返回对象
+			 //console.log(opts.property);
+			 //console.log($.fn.PLUGIN.defaults);
+			 return this.each(function() {
+				 // Assign the current object to a variable for easier use
+				 var $this = $(this);
+				 console.log($this);
+			 });
+		 }; 
+
+		 // 公共函数
+		 $.fn.PLUGIN.FUNCT = function() {
+			 
+		 }; 
+
+		 // 插件的默认设置
+		 $.fn.PLUGIN.defaults = {
+			property: "value",
+			anotherProperty: 10
+		 };
+
+		 // 私有函数
+		 function privateFunction() {
+			 
+		 }
+	};
+	})(jQuery,2);
+	$(document).ready(function(){
+		$("#container").PLUGIN({
+			property: "ok"
+		});
+		console.log($("#container").PLUGIN());
+	});
+</script>
+</head>
+<body>
+	<div id="container">
+		内容
+	</div>
+</body>
+</html>

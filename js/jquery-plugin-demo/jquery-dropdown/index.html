@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>dropdown插件</title>
+	<script src="../jquery-1.6.1.min.js" type="text/javascript"></script>
+	<script src="jquery.dropdown.js"></script>
+	<link rel="stylesheet" href="../../../css/global.css" type="text/css" />
+	<link rel="stylesheet" href="jquery.dropdown.css" type="text/css" />
+    <script>
+        $(function () {
+		    $(".dropdown").dropdown();
+	    })
+    </script>
+</head>
+<body>
+<div class="dropdown">
+	<a href="#" class="dropdown_toggle">点击下拉</a>
+    <ul class="dropdown_menu">
+      <li><a href="#">二级菜单</a></li>
+      <li><a href="#">二级菜单2</a></li>
+      <li class="divider"></li>
+      <li><a href="#">其他链接</a></li>
+    </ul>
+</div>
+</body>
+</html>

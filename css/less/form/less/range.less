@@ -1,0 +1,26 @@
+//@font-face {
+//    font-family: 'uxiconfont';
+//    src: url('http://ued.dyndns.org/mw/base/styles/component/form/uxiconfont.ttf');
+//}
+#tbh5v0 {
+    //公用函数
+    #c-form {
+        //range
+        //w: 宽度
+        .range(@w) {
+            height: 5px;
+            width: @w;
+            -webkit-appearance:none;
+            background-color: #ccc;
+            -webkit-border-radius: 1em;
+            &::-webkit-slider-thumb {
+                background-image:url(images/slider-thumb.gif);
+                -webkit-appearance:none;
+                width: 10px;
+                height: 23px;
+                border: 0;
+            }
+        }
+    }
+}
+@import '_range';

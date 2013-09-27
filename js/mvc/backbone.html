@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>backbone.js示例</title>
+	<link rel="stylesheet" href="bootstrap-1.2.0.min.css" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
+	<script src="underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="backbone.js" type="text/javascript" charset="utf-8"></script>
+    <script src="backbone-localstorage.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			var baodan = Backbone.Model.extend({
+				regex: {
+					num: /^[1-9]?\d*[年|月|日]?$/,
+					pos2: /^\d?(.\d\d?)?$/
+				},
+				initialize: function (spec) {
+					this.bind("error",function(model,error){
+						alert(error);
+					});
+				},
+				validate: function (attrs) {
+					if (!attrs.premiumName) {
+						return "保单名称不能为空";
+					};
+					if (!attrs.premium) {
+						return "保费不能为空";
+					};
+					if(!this.regex.num.test(attrs.premium)){
+						return "保费只能为数字";
+					}
+					if(!this.regex.num.test(attrs.age)){
+						return "年龄只能为数字";
+					}
+					if(!this.regex.num.test(attrs.insuranceAmount)){
+						return "保费额度只能为数字";
+					}
+					if(!this.regex.num.test(attrs.insuranceAmount)){
+						return "保费额度只能为数字";
+					}
+					if(!this.regex.pos2.test(attrs.insuranceAmount)){
+						return "保费额度只能保留2位小数";
+					}
+					if(!this.regex.num.test(attrs.insurancePeriod)){
+						return "保险期间只能为数字";
+					}
+					if(!this.regex.num.test(attrs.paymentPeroid)){
+						return "缴费期间只能为数字";
+					}
+				},
+				clear: function() {
+					this.destroy();
+					$(this.view.el).remove();
+				}
+			});
+			var baodanList = Backbone.Collection.extend({
+				model:baodan,
+                localStorage: new Store("baodans")
+			});
+
+			var baodans = new baodanList;
+
+			var baodanView = Backbone.View.extend({
+				tagName: "tr",
+				className: "baodan",
+				template: _.template("<td><%=premiumName%></td><td><%=age%></td><td><%=occupation%></td><td><%if(sex==1){%>男<%}else{%>女<%}%></td><td><%=area%></td><td><%=insuranceAmount%></td><td><%=insurancePeriod%></td><td><%=paymentPeroid%></td><td><%=paymentMethod%></td><td><%=premium%></td><td><input type='button' value='删除' class='btn del'/></td>"),
+				events: {
+					"click .del": "clear"
+				},
+				initialize: function() {
+					this.model.bind('change', this.render);
+     				this.model.view = this;
+				},
+				render: function() {
+					$(this.el).html(this.template(this.model.toJSON()));
+					return this;
+				},
+				clear: function() {
+					this.model.clear();
+				}
+			});
+
+			var appView = Backbone.View.extend({
+				el:$("#baodanApp"),
+				events:{
+					"click #add":"createOne"
+				},
+				initialize: function() {
+					baodans.bind('add', this.addOne, this);
+					baodans.bind('reset', this.addAll, this);
+                    baodans.fetch();
+				},
+				addOne: function(baodan) {
+					var view = new baodanView({
+						model: baodan
+					}).render().el;
+					$("#baodanApp").find("tbody tr.operate").before(view);
+					$("#baodanApp").find("tr.operate input").val("");
+				},
+				addAll: function() {
+					baodans.each(this.addOne);
+				},
+				createOne: function() {
+					baodans.create({
+						premiumName: this.el.find("input[name=field1]").val(),
+						age: this.el.find("input[name=field2]").val(),
+						occupation: this.el.find("input[name=field3]").val(),
+						sex: this.el.find("select[name=field4]").val(),
+						area: this.el.find("input[name=field5]").val(),
+						insuranceAmount: this.el.find("input[name=field6]").val(),
+						insurancePeriod: this.el.find("input[name=field7_1]").val()+this.el.find("select[name=field7_2]").val(),
+						paymentPeroid: this.el.find("input[name=field8_1]").val()+this.el.find("select[name=field8_2]").val(),
+						paymentMethod: this.el.find("input[name=field9]").val(),
+						premium: this.el.find("input[name=field10]").val()
+					});
+				}
+			});
+			var app = new appView;
+			$("#getdata").click(function(){
+				$("#setdata").val(JSON.stringify(baodans));
+				alert($("#setdata").val());
+			});
+			$("#special").click(function(){
+				baodans.reset();
+			})
+            //var buttonView = {
+			//	label   : 'underscore',
+			//	onClick : function(){ alert('clicked: ' + this.label); console.log(this);},
+			//	onHover : function(){ console.log('hovering: ' + this.label); }
+			//};
+			//_.bindAll(buttonView);
+			//jQuery('#getdata').bind('click', buttonView.onClick);
+		});
+	</script>
+	<style type="text/css" media="screen">
+		input {
+			width:50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="baodanApp">
+	<table id="rdata">
+		<thead>
+			<th>保费名称<span class="red">*</span></th>
+			<th>年龄</th>
+			<th>职业</th>
+			<th>性别</th>
+			<th>地区</th>
+			<th>保费额度（万元）</th>
+			<th>保费期间</th>
+			<th>缴费期间</th>
+			<th>缴费方式</th>
+			<th>保费<span class="red">*</span></th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<tr class="operate">
+				<td><input type="text" name="field1" value="" placeholder="ok" /></td>
+				<td><input type="text" name="field2" value="" placeholder="这样也行？！"/></td>
+				<td><input type="search" name="field3" value="" /></td>
+				<td>
+					<select name="field4">
+						<option value="1">男</option>
+						<option value="0">女</option>
+					</select>
+				</td>
+				<td><input type="text" name="field5" value="" /></td>
+				<td><input type="text" name="field6" value="" /></td>
+				<td><input type="text" name="field7_1" value="" class="short" /><select class="short" name="field7_2"><option value="年">年</option><option value="月">月</option><option value="日">日</option></select></td>
+				<td><input type="text" name="field8_1" value="" class="short" /><select class="short" name="field8_2"><option value="年">年</option><option value="月">月</option><option value="日">日</option></select></td>
+				<td><input type="text" name="field9" value="" /></td>
+				<td><input type="text" name="field10" value="" /></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="hidden" name="setdata" value="" id="setdata"/>
+	<p><input type="button" value="添加" class="btn" id="add"/><input type="button" value="提交" class="btn primary" id="getdata"/><input type="button" value="特殊事件" class="btn primary" id="special"/></p>
+	</div>
+</body>
+</html>

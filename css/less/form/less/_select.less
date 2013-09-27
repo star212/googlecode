@@ -1,0 +1,49 @@
+#tbh5v0 {
+    //select控件
+    //w：宽度
+    //h：高度
+    //bc：背景色
+    //border的宽度
+    //arr 箭头的距离
+    .c-form-select(@w: 80px, @h: 33px, @bc: #fff, @bw: 1px, @arr: 7px) {
+        position:relative;
+        width: @w;
+        &:after {
+            //images/select-arr-down.gif
+            //content: url(data:image/gif;base64,R0lGODlhDQAIAMQTAM3Nzf39/XFxcdTU1Gtra8nJyZGRkZiYmJycnMDAwNbW1peXl8vLy3Nzc+Li4pWVlWhoaPv7+2ZmZv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABMALAAAAAANAAgAAAUw4BQk0WSejiIi0lKiAjFEj9S+TiNBwETbh0hu1zP9JAYdhHEy1mzL5ukXlU4XBWkIADs=);
+            content: "";
+            top: 11px;
+            right: @arr;
+            position:absolute;
+            .border-arrow(5px, 5px, #666, 2px, 180deg);
+        }
+        select {
+            -webkit-appearance:none;
+            width: @w;
+            height: @h;
+            -webkit-border-radius: 0;
+            border:solid 1px #D5D5D5;
+            border-top-color: #BDBDBD;
+            border-width: @bw;
+            #tbh5v0 > .c-base-p-title-text();
+            padding-right: @arr + 9px;
+            background: @bc;
+            option {
+                white-space: nowrap;
+                text-overflow:ellipsis;
+                overflow:hidden;
+            }
+            &:focus {
+                //-webkit-box-shadow: 0 0 3px @standard-sub-color2;
+                outline: none;
+            }
+        }
+    }
+    
+    .c-form-select-page {
+        .c-form-select(88px,33px,#eee,0px,24px);
+    }
+    .c-form-select-normal {
+        .c-form-select(200px,33px,-webkit-gradient(linear, 0 0, 0 100%, from(#F5F5F5), to(#FDFDFD)));
+    }
+}

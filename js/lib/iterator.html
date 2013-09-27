@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历dom</title>
+</head>
+<body>
+		<div class="name a1" id="bb">bb</div>
+		<p>cc</p>
+		<ul><li>dd</li></ul>
+		<script type="text/javascript">
+			function iterator(node,classname){
+				var tmpreg = new RegExp("(\\s|^)"+classname+"(\\s|$)");
+				if (tmpreg.test(node.className)) {
+					console.log(node);
+					console.log(node.className);
+				};
+				var children = node.childNodes;
+				if(children == null || typeof children == "undefined" || children.length == 0) return;
+				for (var i = 0; i < children.length; i++) {
+					iterator(children[i],classname);
+				};
+			}
+			iterator(document.body,"a1");
+			var a = document.getElementById('bb');
+			var b = document.getElementsByClassName('a1');
+			console.log(a.className);
+			console.log(b);
+		</script>
+</body>
+</html>

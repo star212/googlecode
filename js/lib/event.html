@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM事件示例</title>
+
+</head>
+<body>
+请在这里点击
+<textarea name="txt" rows="8" cols="40" id="txt"></textarea>
+</body>
+<script type="text/javascript">
+	document.onmousedown = function  (e) {
+		var _e = e || window.event;
+		console.log(_e.target);
+		if(_e.button == 2) {
+			console.log("右键被按下");
+		}
+	};
+	document.onmouseup = function  (e) {
+		var _e = e || window.event;
+		console.log(_e);
+		if(_e.button == 2) {
+			console.log("右键被松开");
+		}
+	};
+	document.getElementById("txt").onkeypress = function(e){
+		console.log(e.keyCode);
+		console.log(e.charCode);
+	}
+	document.getElementById("txt").onmousemove = function(e){
+		var _e = e || window.event;
+		console.log(_e.clientX);
+	}
+	console.log(document.oncontextmenu=function  () {
+		return false;
+	});
+</script>
+</html>

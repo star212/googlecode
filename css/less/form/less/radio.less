@@ -1,0 +1,77 @@
+//form公用
+
+//@font-face {
+//    font-family: 'uxiconfont';
+//    src: url('http://ued.dyndns.org/mw/base/styles/component/form/uxiconfont.ttf');
+//}
+#tbh5v0 {
+    //圆形
+    //w: 直径
+    .round(@w,@to:#A9A9A9,@from:#eee) {
+        width: @w + 1px;
+        height: @w + 1px;
+        //-webkit-border-radius: 1em;
+        //border-radius: 1em; //for chrome in android 4.0
+        background-image: -webkit-gradient(radial, center center, (@w + 1) / 2, center center, (@w + 1)/2 - 1, from(@from), to(@to));
+    }
+    .circle(@w) {
+        width: @w;
+        height: @w;
+        -webkit-border-radius: 1em;
+        border-radius: 1em; //for chrome in android 4.0
+    }
+    //公用函数
+    #c-form {
+
+        //checkbox和radio公用样式
+        .widget1() {
+            -webkit-appearance: none;
+            position:relative;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            //&:active {
+            //    background-color: #fff;
+            //}
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#F5F5F5), to(#FDFDFD));
+        }
+
+        //用于创建不同的版本
+        //status 状态定义
+        //before 点击前的图片
+        //after 点击后的图片
+        .status1(@before, @after) {
+            //点击前
+            background-image: @before;
+            //点击后
+            &:active {
+                background-color: transparent;
+            }
+            &:disabled {
+                background-image: none;
+                border: 0;
+            }
+            &:checked {
+                background-image: @after;
+                border: 0;
+            }
+        }
+        .radio() {
+            border: 0;
+            &:disabled {
+                #tbh5v0 > .round(19,#ccc);
+            }
+            &:checked:disabled {
+                &:after{
+                    background-color: #ccc;
+                    #tbh5v0 > .round(7,#999,#ccc);
+                    display:block;
+                    margin-top: 6px;
+                    margin-left: 6px;
+                    content: "";
+                }
+            }
+        }
+    }
+}
+@import '_radio';

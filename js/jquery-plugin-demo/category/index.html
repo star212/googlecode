@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分类列表</title>
+	<script src="../jquery-1.6.1.min.js"></script>
+	<link rel="stylesheet" href="../../../css/global.css" type="text/css" />
+	<style>
+		.category .sub_list {
+			border:solid 1px red;
+			width: 500px;
+			height: 200px;
+			display:none;
+			position: absolute;
+			left:180px;
+			top:0;
+			background-color:#fff;
+		}
+		.category .item {
+			width: 200px;
+		}
+		.category .item h3 {
+			padding-left: 15px;
+			width:164px;
+			height:30px;
+			line-height:30px;
+			border:solid 1px #fff;
+			z-index:1;
+			position:relative;
+			background-color:#fff;
+			border-right-width:0;
+		}
+		.category .item.hover .sub_list {
+			display:block;
+		}
+		.category .item.hover h3 {
+			border-color:red;
+			width:165px;
+		}
+	</style>
+</head>
+<body>
+	<div class="category">
+		<div class="item">
+			<h3><a href="#">个人贷款</a></h3>
+			<div class="sub_list">
+				个人
+			</div>
+		</div>
+		<div class="item">
+			<h3><a href="#">企业贷款</a></h3>
+			<div class="sub_list">
+				企业
+			</div>
+		</div>
+		<div class="item">
+			<h3><a href="#">信用贷款</a></h3>
+			<div class="sub_list">
+				信用
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".item").hover(function(){ $(this).addClass("hover"); },function  () { $(this).removeClass("hover"); })
+	</script>
+</body>
+</html>

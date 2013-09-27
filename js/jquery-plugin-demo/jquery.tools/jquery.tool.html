@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery.tools</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script src="jquery.tools.min.js"></script>
+	<script type="text/javascript">
+		$.tools.validator.localizeFn("[name=username]", {
+			en: 'Please supply a valid time',
+			cn: '用户名不能为空'
+		});
+		$.tools.validator.fn("[must]",{cn:"$1不能为空"}, function(el, value) {
+			return value ? true : [el.attr("must")];
+		});
+	</script>
+	<style>
+/* error message */
+.error {
+	/* supply height to ensure consistent positioning for every browser */
+	height:15px;
+	background-color:#FFFE36;
+	border:1px solid #E1E16D;
+	font-size:11px;
+	color:#000;
+	padding:3px 10px;
+	margin-left:-2px;
+
+
+	/* CSS3 spicing for mozilla and webkit */
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius-bottomleft:0;
+	-moz-border-radius-topleft:0;
+	-webkit-border-bottom-left-radius:0;
+	-webkit-border-top-left-radius:0;
+
+	-moz-box-shadow:0 0 6px #ddd;
+	-webkit-box-shadow:0 0 6px #ddd;
+}
+		
+	</style>
+</head>
+<body>
+	<form id="myform" action="jquery.tool_submit" method="post" accept-charset="utf-8">
+		<label for="username">username</label><input type="text" name="username" value="" id="username" must="用户名"/>
+		<label for="pwd">pwd</label><input type="text" name="pwd" value="" id="pwd" must="密码"/>
+	<p><input type="submit" value="Continue &rarr;" /></p>
+	</form>
+	<script type="text/javascript">
+		$("#myform").validator({lang:'cn'});
+		//console.dir( $.tools.validator.messages);
+	</script>
+</body>
+</html>

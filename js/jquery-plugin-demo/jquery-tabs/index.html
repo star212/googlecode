@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tabs</title>
+<link rel="stylesheet" href="http://res.6677bank.com/public/css/base.css" type="text/css" />
+<link rel="stylesheet" href="jquery.qTab.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script src="jquery.qTab.js"></script>
+<style type="text/css" media="screen">
+body{padding:10px;}
+</style>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$(".tabs").qTab({
+			eventCallback: function(){
+					$(this).find("input").attr("checked",true).click(function(){
+						return false;
+					});
+					$(this).siblings().find("input").attr("checked",false).unbind("click");
+			}
+		});
+		$("#ajaxTab").qTab({
+			eventType:'mouseover',
+			ajax: true
+		})
+		$(".tabsRadio").qTab({
+			eventCallback: function(){
+				$(this).find("input").attr("checked",true);
+			},
+			contentClass:".tabs_content_special"
+		})
+	});
+</script>
+</head>
+<body>
+<div class="tabs" style="width: 400px;">
+  <h2 class='tabs_title cf'>
+    <a class="selected" href="javascript:void(0)"><input type="checkbox" value="" checked/>受理统计</a>
+    <a href="javascript:void(0)"><input type="checkbox" value="" />审核统计</a>
+    <a href="javascript:void(0)"><input type="checkbox" value="" />业务统计</a>
+  </h2>
+  <ul class="tabs_content">
+    <li><span class="tabs_nav"><a href="#">信用</a>&nbsp;|&nbsp;<a href="#">评估</a></span>Tabs1</li>
+    <li>Tabs2</li>
+    <li>Tabs3</li>
+  </ul>
+</div>
+<div id="ajaxTab">
+  <h2 class='tabs_title cf'>
+    <a class="selected" href="javascript:void(0)">受理统计</a>
+    <a href="data2.html">审核统计</a>
+    <a href="data.html">业务统计</a>
+  </h2>
+  <ul class="tabs_content">
+    <li>Tabs1</li>
+    <li>a</li>
+    <li>Tabs3</li>
+  </ul>
+</div>
+<div class="tabsRadio">
+  <h2 class='tabs_title cf'>
+    <a class="selected" href="javascript:void(0)"><input name="s1" type="radio" value="" checked/>受理统计</a>
+    <a href="javascript:void(0)"><input name="s1" type="radio" value="" />审核统计</a>
+    <a href="javascript:void(0)"><input name="s1" type="radio" value="" />业务统计</a>
+  </h2>
+  <ul class="tabs_content_special">
+    <li>Tabs1</li>
+    <li>Tabs2</li>
+    <li>Tabs3</li>
+  </ul>
+</div>
+</body>
+</html>

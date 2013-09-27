@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>backbone.js Router示例</title>
+	<link rel="stylesheet" href="bootstrap-1.2.0.min.css" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
+	<script src="underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="backbone.js" type="text/javascript" charset="utf-8"></script>
+    <script src="backbone-localstorage.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		var AppRouter = Backbone.Router.extend({
+			routes: {
+				"!/posts/:id": "getPost",
+				"!*actions": "defaultRoute" // matches http://example.com/#anything-here
+			},
+			getPost: function(id) {
+				alert(id);
+			},
+			defaultRoute: function( actions ){
+				// The variable passed in matches the variable in the route definition "actions"
+				alert( actions ); 
+			}
+		});
+		// Initiate the router
+		var app_router = new AppRouter;
+		// Start Backbone history a neccesary step for bookmarkable URL's
+		Backbone.history.start();
+			
+	</script>
+	<style type="text/css" media="screen">
+		input {
+			width:50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="RouterApp">
+		<ul>
+			<li><a href="#!action">Activate route</a></li>
+			<li><a href="#!/route/action">Activate another route</a></li>
+			<li><a href="#!/posts/120">Post 120</a></li>
+			<li><a href="#!/posts/130">Post 130</a></li>
+		</ul>
+	</div>
+</body>
+</html>

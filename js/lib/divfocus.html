@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div focus</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<style>
+		.focus {
+			width:200px;
+			height: 200px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+<input type="text" value="" />
+	<div class="focus" tabindex="-1">
+		
+	</div>
+	<script type="text/javascript">
+		$(".focus").focus(function(){
+			$("#a").hide();
+		}).blur(function(){
+			$("#a").show();
+		})
+	</script>
+	<div class="focus" id="a" accesskey="h"></div>
+</body>
+</html>

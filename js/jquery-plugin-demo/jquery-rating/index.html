@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>评级插件</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script src="jquery.rating.js"></script>
+	<link rel="stylesheet" href="../../styles/qc.css" type="text/css" />
+	<link rel="stylesheet" href="jquery.rating.css" type="text/css" />
+</head>
+<body>
+<div class="rating_field"><span class="tit">质　量：</span>
+	<span class="rating_radio" data-type="quality" style="position: absolute; left: -9999px;">
+			<label><input type="radio" name="dsr1" value="1" title="">一星</label>
+			<label><input type="radio" name="dsr1" value="2" title="">二星</label>
+			<label><input type="radio" name="dsr1" value="3" title="">三星</label>
+			<label><input type="radio" name="dsr1" value="4" title="">四星</label>
+			<label><input type="radio" name="dsr1" value="5" title="">五星</label>
+	</span>
+	<ul class="rating">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+	</ul>
+</div>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$(".rating_field").rating();
+	});
+</script>
+<a href=""></a>
+</body>
+</html>

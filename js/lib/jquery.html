@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery源码分析</title>
+	<script src="jquery-1.6.4.js"></script>
+	<script type="text/javascript">
+		console.log("load");
+		var myjson = '{"name":7}';
+	</script>
+</head>
+<body>
+	<div id="aaa">
+		<span>helol</span>
+	</div>
+	<div id="bb">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	console.log("$符号代表："+$);
+	console.log($.fn);
+	console.log($(document.getElementById("aaa")));
+	console.log($("#aaa span"));
+	console.log($("div").get(1));
+	console.log($(123));
+	console.log($.parseJSON(myjson));
+	console.log($.hasData);
+</script>
+</html>

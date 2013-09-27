@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>YUI Get Start</title>
+	<script src="build/yui/yui.js"></script>
+	<style type="text/css" media="screen">
+		.yui3-js-enabled .yui3-overlay-loading,.yui3-tabview-loading {
+		   /* Hide overlay markup offscreen */
+		   position:absolute;
+		   top:-1000em;
+		   left:-1000em;
+		}
+	</style>
+</head>
+<body>
+<div id="demo">
+    <div id="container">
+        <p>Click for Hello World alert.</p>
+    </div>
+    <p><a href="http://yuilibrary.com" id="firstA">The YUI Library. (Link navigates away from page.)</a></p>
+
+    <p><a href="http://yuilibrary.com" id="secondA">The YUI Library. (Link's default behavior is suppressed.)</a></p>
+</div>
+<div id="tabs">
+    <ul>
+        <li><a href="http://www.163.com/">foo</a></li>
+        <li><a href="#bar">bar</a></li>
+        <li><a href="#baz">baz</a></li>
+    </ul>
+    <div>
+        <div id="foo">
+            <p>foo content</p>
+        </div>
+        <div id="bar">
+            <p>bar content</p>
+        </div>
+        <div id="baz">
+            <p>baz content</p>
+        </div>
+    </div>
+</div>
+
+	<script type="text/javascript" charset="utf-8">
+YUI().use('node', function (Y) {
+    // A function that pops up a "Hello World" alert:
+    var helloWorld = function(e) {
+        alert("Hello World!");
+    }
+
+    // subscribe the helloWorld function as an event handler for the click
+    // event on the container div:
+    var node = Y.one("#container");
+
+    node.on("click", helloWorld);
+
+    // A function that pops up an alert and prevents the default behavior of
+    // the event for which it is a handler:
+    var interceptLink = function(e) {
+        e.preventDefault();
+        alert("You clicked on the second YUI link.  Because *preventDefault* was called, this link will not navigate away from the page.");
+    }
+
+    // subscribe our interceptLink function as a click handler for the second
+    // anchor element:
+    Y.one('#secondA').on("click", interceptLink);
+});
+YUI().use('tabview', function(Y) {
+    var tabview = new Y.TabView({
+		srcNode:'#tabs',
+		UI_EVENTS: {
+			widget: 'mouseover'
+		},
+		NAME: "ko"
+	});
+	//var tabview = new Y.TabView({
+    //    children: [{
+    //        label: 'foo',
+    //        content: '<p>foo content</p>',
+	//		triggerEvent: 'mouseover'
+    //    }, {
+    //        label: 'bar',
+    //        content: '<p>bar content</p>'
+    //    }, {
+    //        label: 'baz',
+    //        content: '<p>baz content</p>'
+    //    }]
+    //});
+	tabview.set("HTML_PARSER.ATTRS.triggerEvent",'mouseover');
+	tabview.render();
+    console.log(tabview.getClassName());
+	console.log(tabview.HTML_PARSER);
+	console.log(tabview.get('render'));
+	console.log(tabview.item(1).get('triggerEvent'));
+	tabview.each(function(child){
+		console.log(child);
+		child.set('triggerEvent','mouseover');
+	});
+});
+
+	</script>
+</body>
+</html>

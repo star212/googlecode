@@ -1,0 +1,52 @@
+百度前端架构分享：
+
+js会有好几层结构，部分细化如下：
+ajax.js
+array.js
+browser.js
+	baidu.browser.ie
+	baidu.browser.opera
+	baidu.browser.isWebkit
+	baidu.browser.isGecko
+	baidu.browser.isStrict
+cookie.js
+date.js
+dom.js
+	baidu.dom.getDocumnet
+	baidu.dom.g
+	baidu.dom.getStyle
+element.js
+event.js
+json.js
+lang.js
+number.js
+object.js
+page.js
+sio.js
+string.js
+swf.js
+url.js
+
+前端资源
+	检测
+		线下地址检查
+		jslint检查
+		页面、模板检查
+	优化
+		js、css、html压缩
+		图片压缩
+		css sprite 自动化
+	集成
+		编译预处理模板
+	分发
+		上传到服务机
+		自动替换地址
+		静态文件引用添加时间戳
+
+自动以上过程，编写打包脚本。
+
+
+
+开发流程
+
+本地开发 -》 自动打包发送到测试机 -》 测试 -》 发布

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数银理财</title>
+	<link rel="stylesheet" href="css/global/base.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/jquery-ui-1.8.12.custom.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/index.css" type="text/css" media="screen" charset="utf-8" />
+	<!--[if IE]><script src="js/html5.js"></script><![endif]-->
+	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.12.tabs.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<!--#include virtual="header.shtml" -->
+	<!--#include virtual="body.shtml" -->
+	<!--#include virtual="footer.shtml" -->
+</div>
+</body>
+</html>

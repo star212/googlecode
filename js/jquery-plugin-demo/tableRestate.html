@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格重列</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>姓名：</th>
+			<td>Smeagol</td>
+			<th>性别：</th>
+			<td>男</td>
+		</tr>
+		<tr>
+			<th>年龄：</th>
+			<td>16岁</td>
+			<th>婚姻状况：</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>学历：</th>
+			<td>初中</td>
+			<th>籍贯：</th>
+			<td>潘多拉星球</td>
+		</tr>
+	</table>
+	<script type="text/javascript" charset="utf-8">
+		function tableRestate(_table,colCouple) {
+			var mod = colCouple*2;
+			var _title = _table.find(".title").prop("colspan",mod).parent().remove();
+			var _tds = _table.find("td,th");
+			_tds.each(function(i){
+				if(!this.innerHTML){
+					_tds = _tds.not($(this).remove()).not(_tds.eq(i-1).remove());
+				}
+			});
+			_table.empty();
+			_table.append(_title);
+			var _tr = new $;
+			_tds.each(function(i){
+				_tr = _tr.add($(this));
+				if(i%mod==mod-1 && i!=0){
+					_tr = _tr.wrapAll("<tr></tr>").parent();
+					_table.append(_tr);
+					_tr = new $;
+				}
+			});
+			var emptyCell = _tds.length % mod;
+			if (emptyCell) {
+				emptyCell = mod - emptyCell;
+				for (var i = 0; i < emptyCell; i++) {
+					_tr = _tr.add("<td></td>");
+				};
+				_tr = _tr.wrapAll("<tr></tr>").parent();
+				_table.append(_tr);
+			};
+		}
+		tableRestate($("table"),4);
+	</script>
+</body>
+</html>

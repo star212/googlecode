@@ -1,0 +1,90 @@
+Includes Sizzle.js
+
+匿名函数传递window 形成一个闭包
+
+41-70 若干正则，如判断浏览器内核，trim，单独的html标签，json结构等。
+
+100 开始定义jquery原型：jQuery.fn = jQuery.prototype
+
+102-210 init初始化函数
+
+	0
+	context
+	selector
+	length
+	128行判断参数类型，判断是:
+		一个html字符串
+		一个id
+		一个表达式(expr)
+		一个表达式加一个dom对象
+		一个表达式加一个jquery对象
+		一个函数（docment.ready的快捷方式）
+
+232-316 jquery对象集合操作，如get，first，eq，last，end等
+
+323 jQuery.fn结束
+326 jQuery.fn.init.prototype = jQuery.fn;
+328 jQuery.extend = jQuery.fn.extend = function(){};
+390 jQuery.extend 定义结束
+
+392 执行extend，扩展的方法有noConflict,ready,isWindow(敢情以前的chm是不全的。)，parseJSON等
+894 执行extend结束
+
+919 rootjQuery = jQuery(document);
+
+922 document ready 还看不太懂
+
+959 var jQuery = (function(){})(); 结束
+
+962 延时对象(deferred)
+1156 延时对象结束
+
+1160 support方法，匿名函数
+1410 support方法结束（测试了很多东西，看不懂）
+
+1146 data函数（内部用）
+1546 data函数结束
+
+1548 removeData
+1644 结束
+
+1665 data函数（外部用）
+1721 data结束
+
+1730 dataAttr函数，如果内部数据没有的话，会从html5的data-*属性上读取数据
+1758 end
+
+1763 兼容1.5的函数isEmptyDataObject
+
+1796-1869 大概是内部用的_mark,_unmark,queue,dequeue
+1871-1943 外部用的queue,dequeue,delay,clearQueue,promise
+
+1957-2159 attr,removeAttr,prop,removeProp,addClass,removeClass,toggleClass,hasClass,val
+
+2161-2430 以上函数内部用的。valHooks,attrFn,attrFix,attr,removeAttr,attrHooks,propFix,prop,propHooks
+
+2436-2463 boolHook
+
+2465-2569 关于兼容性的处理，针对的上面的attr和val
+
+2583下面是关于js里面事件处理的函数了，想法来源于Dean Edwards' addEvent library 3123结束。
+中间很多是帮助处理事件的函数，很一些兼容性的解决。
+
+3467-3505 bind，one
+
+3507-3578 unbind,delegate,undelegate,trigger,triggerHandler,toggle,hover
+
+3587-3655 live,die
+
+3657-3743 liveHandler 不懂
+3745-3747 liveConvert 不懂
+
+3749-3768 blur focus focusin focusout load resize scroll unload click dblclick " +
+	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+	"change select submit keydown keypress keyup error
+
+3773-5190 Sizzle css selector engine
+
+5208-5369 find，has，not，filter，is，closest，index，add，andSelf
+
+5377-5442 parent，parents，parentsUntil，next，prev，nextAll，prevAll，nextUntil，prevUntil，siblings，children，contents

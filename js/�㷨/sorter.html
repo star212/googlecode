@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>算法</title>
+	<script type="text/javascript" charset="utf-8">
+		var myarr = new Array(2,8,4,7);
+		document.write(myarr);
+		var wt = new Array;
+		for(var i=0;i<10;i++){
+			wt[i] = 0;
+		}
+		for(var i=0;i<myarr.length;i++){
+			wt[myarr[i]] = 1;
+		}
+		document.write(wt);
+		for(var i=0;i<wt.length;i++){
+			if(wt[i]==1){
+				document.write(i);
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

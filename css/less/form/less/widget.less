@@ -1,0 +1,151 @@
+//form公用
+
+//@font-face {
+//    font-family: 'uxiconfont';
+//    src: url('http://ued.dyndns.org/mw/base/styles/component/form/uxiconfont.ttf');
+//}
+#tbh5v0 {
+    //圆形
+    //w: 直径
+    .round(@w,@to:#A9A9A9,@from:#eee) {
+        width: @w + 1px;
+        height: @w + 1px;
+        //-webkit-border-radius: 1em;
+        //border-radius: 1em; //for chrome in android 4.0
+        background-image: -webkit-gradient(radial, center center, (@w + 1) / 2, center center, (@w + 1)/2 - 1, from(@from), to(@to));
+    }
+    .circle(@w) {
+        width: @w;
+        height: @w;
+        -webkit-border-radius: 1em;
+        border-radius: 1em; //for chrome in android 4.0
+    }
+    //公用函数
+    #c-form {
+
+        //文本框
+        //
+        //判断是百分数，还是像素值。(ispixel)
+        //step为差值
+        .ispercentage(@w, @step) when (ispixel(@w)){
+            width: @w - @step;
+        }
+        .ispercentage(@w, @step) when (ispercentage(@w)) {
+            width: @w;
+        }
+        .c-form-txt(@w: 298px, @h: 33px) {
+            height: @h;
+            .ispercentage(@w,9);
+            //width: @w;
+            border:solid 1px #DDD;
+            border-top-color: #BBB;
+            //text-indent: 9px;
+            padding-left: 9px;
+            #tbh5v0 > .c-base-p-title-text;
+			-webkit-border-radius: 0;
+			-webkit-appearance: none;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#F5F5F5), to(#FDFDFD));
+            &:focus {
+                outline: none;
+                background: #fff;
+            }
+            &:disabled {
+                background: #f5f5f5;
+                border-color: #ccc;
+                color: #ccc;
+            }
+            &.error {
+                border-color: #EC0000;
+                //-webkit-box-shadow: 0 0 3px @standard-sub-color2;
+                border-width: 2px;
+                .ispercentage(@w,10);
+                height: @h - 2;
+                padding-left: 8px;
+            }
+            &::-webkit-input-placeholder {
+                font-size: @big-font-size;
+                color: #ccc;
+            }
+        }
+        //checkbox和radio公用样式
+        .widget() {
+            -webkit-appearance: none;
+            position:relative;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            //&:active {
+            //    background-color: #fff;
+            //}
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#F5F5F5), to(#FDFDFD));
+        }
+
+        //用于创建不同的版本
+        //status 状态定义
+        //before 点击前的图片
+        //after 点击后的图片
+        .status(@before, @after) {
+            //点击前
+            background-image: @before;
+            //点击后
+            &:active {
+                background-color: transparent;
+            }
+            &:disabled {
+                background-image: none;
+                border: 0;
+            }
+            &:checked {
+                background-image: @after;
+                border: 0;
+            }
+        }
+        //checkbox的样式
+        .checkbox() {
+            border:solid 1px #DDD;
+            border-top-color: #BBB;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -webkit-background-size: 20px 20px;
+            &:disabled {
+                background-color: #ccc;
+            }
+            &:checked:disabled {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNDQjlEOTgwQUJDMjExRTFBRjA1RERCMTgzNTc0Njk5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNDQjlEOTgxQUJDMjExRTFBRjA1RERCMTgzNTc0Njk5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0NCOUQ5N0VBQkMyMTFFMUFGMDVEREIxODM1NzQ2OTkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0NCOUQ5N0ZBQkMyMTFFMUFGMDVEREIxODM1NzQ2OTkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4XP9o9AAABbUlEQVR42szXvWqDUBQH8KPVxkGyJRQ6ZFLfqVMhL1FoaWnfo5CpT+PoZFyEFAoxEDCCmhh7jpCS1I+q16s98HcSfpzr/VIyTfMaAJ4x95hb4FufmAXmTcLHK+YB+ilq7BFzJeJjDv3XnODJAPBEhIGKK3w8HiFN037hJEnAtm1wXbcQl3h1ulwuIQiCLFSz2QwEQeDXMaHU6Qmk2mw2sFqt+A11EUolyzJMp1M+8Pnw/kYNw4DRaFQPpsnRFN3tdjlU1/UcWgp7ngeWZUEYhsyooij1lhOhtAQOh0P2varwtmgO3m63GXqq/X5firOgOXg8HoOqqhcvFOGEOo7TGs3BoiiCpmmleBRFP6jv+61RKgEvAmmTYaQZytJp5ayu6rwLtHIdl+FdoH/uXFU4C1pryyzCWdHae/U53gXa6Dw+4XEcM6ONTyfCu0C537n+LbwewF0T/D4AvKBZ/YKhH7c7zA1n8AvzgXn6FmAA8kzX5etq9fMAAAAASUVORK5CYII=);
+                border: 0;
+            }
+        }
+        .radio() {
+            border: 0;
+            &:disabled {
+                #tbh5v0 > .round(19,#ccc);
+            }
+            &:checked:disabled {
+                &:after{
+                    background-color: #ccc;
+                    #tbh5v0 > .round(7,#999,#ccc);
+                    display:block;
+                    margin-top: 6px;
+                    margin-left: 6px;
+                    content: "";
+                }
+            }
+        }
+        //range
+        //w: 宽度
+        .range(@w) {
+            height: 5px;
+            width: @w;
+            -webkit-appearance:none;
+            background-color: #ccc;
+            -webkit-border-radius: 1em;
+            &::-webkit-slider-thumb {
+                background-image:url(images/slider-thumb.gif);
+                -webkit-appearance:none;
+                width: 10px;
+                height: 23px;
+                border: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="description" content="CSS border实现各个方向等腰直角三角效果 » 张鑫旭-鑫空间-鑫生活" />
+<meta name="description" content="CSS border实现各个方向等腰直角三角效果" />
+<meta name="keywords" content="张鑫旭, 张鑫旭-鑫空间-鑫生活, web前端, css, 字符, 三角" />
+<meta name="author" content="张鑫旭, zhangxixnu" />
+<title>CSS border实现各个方向等腰直角三角效果 » 张鑫旭-鑫空间-鑫生活</title>
+<link rel="stylesheet" href="../css/demo.css" type="text/css" />
+<link rel="stylesheet" href="../css/hl.css" type="text/css" />
+<style>
+.border_cort, .border_corr, .border_corb, .border_corl {
+    display: inline-block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+.border_cort {
+	border-color: #333 red green;
+	border-style: solid;
+	border-width: 20px 20px 20px 0;
+}
+.border_corr {
+	border-color: transparent #333 transparent transparent;
+	border-style: solid;
+}
+.border_corb {
+	border-color: transparent transparent #333;
+	border-style: dotted dotted solid;
+}
+.border_corl {
+	border-color: transparent transparent transparent #333;
+	border-style: dotted dotted dotted solid;
+}
+
+</style>
+</head>
+
+<body>
+<div id="header">
+	<a href="http://www.zhangxinxu.com/" class="logo" title="回到鑫空间-鑫生活首页">
+    	<img alt="张鑫旭-鑫空间-鑫生活" src="http://www.zhangxinxu.com/php/image/zxx_home_logo.png" border="0" />
+    </a>
+</div>
+<div id="main">
+	<h1>CSS border实现各个方向等腰直角三角效果实例页面</h1>
+    <div id="body">
+    	<div id="code" class="part">
+        	<h3>代码：</h3>
+            <div class="show">
+                <h5>CSS代码：</h5>
+                <pre name="code" class="css">
+.border_cort, .border_corr, .border_corb, .border_corl {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    overflow: hidden;
+}
+.border_cort {
+    border-color: #333 transparent transparent;
+    border-style: solid dotted dotted;
+}
+.border_corr {
+    border-color: transparent #333 transparent transparent;
+    border-style: dotted solid dotted dotted;
+}
+.border_corb {
+    border-color: transparent transparent #333;
+    border-style: dotted dotted solid;
+}
+.border_corl {
+    border-color: transparent transparent transparent #333;
+    border-style: dotted dotted dotted solid;
+}
+                </pre>
+                <h5>HTML代码：</h5>
+                <pre name="code" class="html">
+&lt;span class="border_cort">&lt;/span>
+&lt;span class="border_corb">&lt;/span>
+&lt;span class="border_corl">&lt;/span>
+&lt;span class="border_corr">&lt;/span>
+                </pre>
+            </div>
+        </div>
+        <div id="effect" class="part">
+        	<h3>效果：</h3>
+            <div class="show">
+            	<div class="demo">
+                    <span class="border_cort"></span>
+                    <span class="border_corb"></span>
+                    <span class="border_corl"></span>
+                    <span class="border_corr"></span>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+<script type="text/javascript" src="../js/hl_all.js"></script>
+<script type="text/javascript">
+	DlHighlight.HELPERS.highlightByName("code", "pre");
+</script>
+<div id="footer">
+  Designed &amp; Powerd by <a href="http://www.zhangxinxu.com/">zhangxinxu</a><br />
+    Copyright© 张鑫旭-鑫空间-鑫生活<br>
+    <a href="http://www.miibeian.gov.cn/" target="_blank">鄂ICP备09015569号</a>     
+</div>
+<div id="ad">
+	<script type="text/javascript">	google_ad_client = "pub-0090627341039040";google_ad_slot = "2041257798";google_ad_width = 468;google_ad_height = 60;</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-11205167-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+		var ga = document.createElement('script');
+		 ga.type = 'text/javascript';
+		 ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+</div>
+</body>
+</html>

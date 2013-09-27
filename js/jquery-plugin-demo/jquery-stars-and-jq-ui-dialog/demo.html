@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>贷款管理-待确认订单</title>
+<link rel="stylesheet" type="text/css" href="css/basic.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.ui.dialog.css" />
+<script src="js/jquery-1.6.1.min.js" type="text/javascript"></script>
+<script src="js/jquery.ui.dialog.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	$("#dialogConfirm").dialog({
+		autoOpen: false,
+		width: 400,
+		modal: true,
+		buttons: {
+			"确认": function() {
+			},
+			"取消": function() {
+				$( this ).dialog( "close" );
+			}
+		},
+	});
+	$("#dialogReturn").dialog({
+		autoOpen: false,
+		width: 400,
+		modal: true,
+		buttons: {
+			"确认": function() {
+			},
+			"取消": function() {
+				$( this ).dialog( "close" );
+			}
+		},
+	});
+	$("#dialogOrderChangestate").dialog({
+		autoOpen: false,
+		width: 400,
+		modal: true,
+		buttons: {
+			"确认": function() {
+			},
+			"取消": function() {
+				$( this ).dialog( "close" );
+			}
+		},
+	});
+	$("#dialogOrderDetail").dialog({
+		autoOpen: false,
+		width: 700,
+		height: 420,
+		modal: true,
+		buttons: {
+			"确认定单": function() {
+			},
+			"退回订单": function() {
+				$( this ).dialog( "close" );
+			}
+		},
+	});
+	$("#dialogOrderRating").dialog({
+		autoOpen: false,
+		width: 400,
+		modal: true,
+		buttons: {
+			"确认": function() {
+			},
+			"取消": function() {
+				$( this ).dialog( "close" );
+			}
+		},
+	});
+	$(".orderConfirm").click(function() {
+			$("#dialogConfirm").dialog("open");
+		});
+	$(".orderReturn").click(function() {
+			$("#dialogReturn").dialog("open");
+		});
+	$(".orderChangestate").click(function() {
+			$("#dialogOrderChangestate").dialog("open");
+		});
+	$(".orderDetail").click(function() {
+		$('#dialogOrderDetail').load('pop_loanmanage_detail.html',function(){
+		$("#dialogOrderDetail").dialog("open");
+		});
+	});
+	$(".orderRating").click(function() {
+			$("#dialogOrderRating").dialog("open");
+		});
+	
+	$( "#datepicker" ).datepicker();
+
+});
+</script>
+</head>
+<body>
+<div class="center">
+  <div class="crumbs"><span class="crumb_head"></span><span>当前位置：<a href="">首页</a> > <a href=""> 产品管理 </a> > 待确认订单</span> </div>
+  <div class="status">
+    <p>目前订单有：<span class="color1">待确认</span> <span class="status_number">(3)</span> </p>
+  </div>
+  <form action="">
+    <div class="search">
+      <ul>
+        <li>
+          <label>订单编号：</label>
+          <input type="text" class="large"/>
+        </li>
+        <li>
+          <label> 客户类别： </label>
+          <select class="select">
+            <option>请选择客户类型</option>
+            <option>个人</option>
+            <option>企业</option>
+          </select>
+        </li>
+        <li>
+          <label> 贷款类型： </label>
+          <select class="select">
+            <option value="" selected="">选择贷款类型</option>
+            <option value="">信用贷款</option>
+            <option value="">抵押贷款</option>
+            <option value="">质押贷款</option>
+            <option value="">保证贷款</option>
+          </select>
+        </li>
+        <li>
+          <label> 贷款用途： </label>
+          <select class="select">
+            <option value="" selected="">选择贷款用途</option>
+            <option value="">购房</option>
+            <option value="">消费</option>
+            <option value="">助学</option>
+            <option value="">流动资金</option>
+          </select>
+        </li>
+        <li>
+          <label> 客户或企业名称： </label>
+          <input type="text" class="large"/>
+        </li>
+        <li>
+          <label> 派发时间： </label>
+          <input type="text" class="small" id="datepicker" />
+          to
+          <input type="text" class="small" />
+        </li>
+        <li>
+          <label> 选择渠道： </label>
+          <select class="select">
+            <option value="" selected="">选择渠道类型</option>
+            <option value="">人工派发</option>
+            <option value="">产品派发</option>
+            <option value="">客户池</option>
+          </select>
+        </li>
+        <li>
+          <input type="submit" value="搜索" class="btn" />
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>订单编号</th>
+          <th>受理渠道</th>
+          <th>客户/企业</th>
+          <th>联系方式</th>
+          <th>贷款类型</th>
+          <th>贷款用途</th>
+          <th>贷款金额</th>
+          <th>派发时间</th>
+          <th>受理时间</th>
+          <th>处理时间</th>
+          <th>回退时间</th>
+          <th>状态</th>
+          <th>操作员</th>
+          <th>回退理由</th>
+          <th>倒计时</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2011032318154845</td>
+          <td>人工派发</td>
+          <td>杭州大象公司</td>
+          <td>188*</td>
+          <td>信用贷款</td>
+          <td>个人综合消费贷款</td>
+          <td>7万元</td>
+          <td>2010-10-30</td>
+          <td>2010-10-30</td>
+          <td>2010-10-30</td>
+          <td>2010-10-30</td>
+          <td>待确认</td>
+          <td>客户经理2</td>
+          <td>身份信息虚假</td>
+          <td>12小时后过期</td>
+          <td class="actions"><span class="orderConfirm">确认</span> <span class="orderReturn">不受理</span> <span class="orderChangestate">更改状态</span> <span class="orderDetail">查看详细</span>  <span class="orderRating">评价</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page"> <a href="###" class="enable">上一页</a><a href="###" class="firstPage currentPage">1</a><a href="###">2</a><a href="###">3</a><a href="###">4</a><a href="###">5</a><span>...</span> <a href="###" class="able">下一页</a> <span class="pageInfo">共<span>8</span>页，到
+      <input type="text" class="num" />
+      页 <a href="###" class="able">确认</a></span> </div>
+  </form>
+</div>
+<!--弹出窗口--> 
+<!--确认-->
+<div id="dialogConfirm" title="提示" class="dialog_wrap">
+  <form action="" id="">
+    <div>
+      <input name="clientData" type="radio" value="" id="clientData1" checked />
+      <label for="clientData1" class="tit">还需补全资料</label>
+      <input name="clientData" type="radio" value="" id="clientData2" />
+      <label for="clientData2" class="tit">客户资料已全</label>
+    </div>
+    <div class="client_data">
+      <textarea class="textarea" id="">请输入需要补全的资料说明</textarea>
+    </div>
+    <div class="">
+      <label> 选择客户经理： </label>
+      <select class="select">
+        <option value="" selected="">请选择客户经理</option>
+        <option value="">客户经理A</option>
+        <option value="">客户经理B</option>
+        <option value="">客户经理C</option>
+      </select>
+    </div>
+  </form>
+</div>
+<!--不受理------>
+<div id="dialogReturn" title="提示" class="dialog_wrap">
+  <p>请输入退回意见</p>
+  <textarea class="textarea">输入文字...</textarea>
+</div>
+<!--更改状态------>
+<div id="dialogOrderChangestate" title="更改状态" class="dialog_wrap">
+  <div class="orderstate_row"><span class="state_tit">当前状态：</span><span class="color1">待审核</span></div>
+  <div class="orderstate_row"><span class="state_tit">更改状态：</span>
+    <ul>
+      <li class="stateline">
+        <input name="" type="radio" value="">
+        <label class="tit">审核通过，等待面签</label>
+        <input name="" type="radio" value="">
+        <label class="tit">审核未通过，回退</label>
+      </li>
+      <li class="stateline">
+        <input name="" type="radio" value="">
+        <label class="tit">面签通过，等待放款</label>
+        <input name="" type="radio" value="">
+        <label class="tit">面签未通过，回退</label>
+      </li>
+      <li>
+        <input name="" type="radio" value="">
+        <label class="tit">放款成功</label>
+        <input name="" type="radio" value="">
+        <label class="tit">放款未成功，回退</label>
+      </li>
+      <li>
+      	<textarea name="" cols="" rows="4" class="textarea">输入处理意见</textarea>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--查看详细------>
+<div id="dialogOrderDetail" title="订单信息"></div>
+<!--用户评价-->
+<div id="dialogOrderRating" title="请对客户进行评价" class="dialog_wrap">
+  <div class="rating">
+    <div class="cust_rating"><span class="tit">质　量：</span>
+	<span class="rate-stars" data-type="quality" style="position: absolute; left: -9999px;">
+			<label><input type="radio" name="dsr1" value="1" title="">一星</label>
+			<label><input type="radio" name="dsr1" value="2" title="">二星</label>
+			<label><input type="radio" name="dsr1" value="3" title="">三星</label>
+			<label><input type="radio" name="dsr1" value="4" title="">四星</label>
+			<label><input type="radio" name="dsr1" value="5" title="">五星</label>
+	</span>
+	  
+      <ul class="rating_level">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="cust_rating"><span class="tit">匹配度：</span>
+	<span class="rate-stars" data-type="match" style="position: absolute; left: -9999px;">
+			<label><input type="radio" name="dsr2" value="1" title="">一星</label>
+			<label><input type="radio" name="dsr2" value="2" title="">二星</label>
+			<label><input type="radio" name="dsr2" value="3" title="">三星</label>
+			<label><input type="radio" name="dsr2" value="4" title="">四星</label>
+			<label><input type="radio" name="dsr2" value="5" title="">五星</label>
+	</span>
+      <ul class="rating_level">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="cust_rating"><span class="tit">配合度：</span>
+	<span class="rate-stars" data-type="with" style="position: absolute; left: -9999px;">
+			<label><input type="radio" name="dsr3" value="1" title="">一星</label>
+			<label><input type="radio" name="dsr3" value="2" title="">二星</label>
+			<label><input type="radio" name="dsr3" value="3" title="">三星</label>
+			<label><input type="radio" name="dsr3" value="4" title="">四星</label>
+			<label><input type="radio" name="dsr3" value="5" title="">五星</label>
+	</span>
+      <ul class="rating_level">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <textarea class="textarea">输入评价</textarea>
+</div>
+<script type="text/javascript" charset="utf-8">
+	$(".rating_level li").bind({
+		click: function() {
+			var _radio = $(this).parent().children();
+			var index = _radio.index(this);
+			var now = index + 1;
+			$(this).parent().siblings("span.rate-stars").find("input").eq(index).prop("checked",true);
+			_radio.removeClass().filter(":lt("+now+")").addClass("current");
+		},
+		mouseover: function() {
+			var _radio = $(this).parent().children();
+			var index = _radio.index(this);
+			var now = index + 1;
+			_radio.removeClass().filter(":lt("+now+")").addClass("current");
+		},
+		mouseout: function() {
+			var _radio = $(this).parent().children();
+			var index = _radio.index(this);
+			var now = index - 1;
+			_radio.filter(":gt("+now+")").removeClass();
+			if(now == -1){
+				_radio.removeClass();
+			}
+		}
+	});
+	$(".rating_level").mouseout(function() {
+		var index = $(this).siblings("span.rate-stars").find("input:checked").val();
+		if (index) {
+			$(this).children().removeClass().filter(":lt("+index+")").addClass("current");
+		}else{
+			$(this).children().removeClass();
+		}
+	})
+</script>
+</body>
+</html>

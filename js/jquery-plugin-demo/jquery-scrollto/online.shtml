@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数银理财</title>
+	<link rel="stylesheet" href="default.css" type="text/css" media="screen" charset="utf-8">
+	<!--[if IE]><script src="js/html5.js"></script><![endif]-->
+	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript">
+var homeFun = function(){
+	var self = this;
+	this._i = 0;
+	this.interval = null;
+	this.action = {
+		obj:{id:'#personalCont',mapId:'#personalMap',length:4},
+		init:function(extend){
+			$.extend(this.obj,extend);
+			this._i = 0;
+			this.autoSwitch();
+			this.interval();
+			this.hoverSwitch();
+		},
+		autoSwitch:function(){
+			$(self.action.obj.id).children().hide().eq(self._i).fadeIn(900);
+			self._i++;
+			if(self._i==self.action.obj.length){self._i=0}
+		},
+		interval:function(){
+			self.interval = setInterval(this.autoSwitch,3000);
+		},
+		clear:function(){
+			clearInterval(self.interval);
+		},
+		hoverSwitch:function(){
+			var _self = this;
+			$(this.obj.mapId).children().each(function(){
+				var i = $(this).index();
+				$(this).hover(function(){
+					_self.clear();
+					$(_self.obj.id).children().eq(i).fadeIn(900).siblings().hide();
+				},function(){
+					self._i = i+1;
+					if(self._i==_self.obj.length){self._i=0}
+					_self.interval();
+				});
+			});
+		}
+	};
+};
+$(document).ready(function(){
+	var personal = new homeFun();
+	personal.action.init();
+	var organ = null;
+	$("#btn1").click(function(){
+		if ($("#tab1").is(":hidden")) {
+			$("#tab1").show();
+			$("#tab2").hide();
+		}
+	});
+	$("#btn2").click(function(){
+		if ($("#tab2").is(":hidden")) {
+			$("#tab1").hide();
+			$("#tab2").show();
+			if(!organ){
+				organ = new homeFun();
+				organ.action.init({id:'#organCont',mapId:'#organMap',length:5});
+			}
+		}
+	});
+
+});
+	</script>
+</head>
+<body>
+<div class="container">
+	<!--#include virtual="header.html" -->	
+	
+	<div id="main">
+	<!--#include virtual="form.html" -->
+	</div>
+	<div id="footer">
+		<p id="link">
+			数银在线：&nbsp;&nbsp;&nbsp;<a href="http://www.6677bank.com/">数银贷款</a>&nbsp; | &nbsp;<a href="http://www.6677licai.com">数银理财</a>
+		</p>
+		<p id="copyright">
+			ICP证：浙B2-20100326 数字金融服务中心广告经营许可证号：330108000035681 数银在线模式与交易系统已申请专利保护，申请号：2005100619224 <br/>Copyright 2008-2011 6677bank.com 版权所有
+		</p>
+		<div id="bottom">
+			<a target="_blank" href="http://www.baic.gov.cn/"><img alt="经营性网站备案信息" src="http://www.6677bank.com/images/public/authority1.gif"></a>
+			<a target="_blank" href="http://net.china.cn/chinese/index.htm"><img alt="不良信息举报中心" src="http://www.6677bank.com/images/public/authority2.gif"></a>
+			<a target="_blank" href="http://www.zj.cyberpolice.cn/"><img alt="网络110报警服务" src="http://www.6677bank.com/images/public/authority3.gif"></a>
+			<a target="_blank" href="http://www.miibeian.gov.cn/"><img alt="中国互联网协会网络诚信推进联盟" src="http://www.6677bank.com/images/public/authority4.gif"></a>
+		</div>
+		
+	</div>
+	
+</div>
+<map name="personalMap" id="personalMap">
+  <area shape="rect" name="1" coords="66,5,208,38" href="javascript:void(0);" />
+  <area shape="rect" name="2" coords="322,43,443,79" href="javascript:void(0);" />
+  <area shape="rect" name="4" coords="175,359,377,386" href="javascript:void(0);" />
+  <area shape="rect" name="3" coords="29,200,145,234" href="javascript:void(0);" />
+</map>
+<map name="organMap" id="organMap">
+  <area shape="rect" coords="16,59,177,79" href="javascript:void(0);" />
+  <area shape="rect" coords="259,7,385,28" href="javascript:void(0);" />
+  <area shape="rect" coords="305,211,439,239" href="javascript:void(0);" />
+  <area shape="rect" coords="195,342,344,371" href="javascript:void(0);" />
+  <area shape="rect" coords="36,270,153,291" href="javascript:void(0);" />
+</map>
+</body>
+</html>

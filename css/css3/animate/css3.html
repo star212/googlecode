@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>常用css3动画</title>
+<meta charset="utf-8" />
+<link href="animate.source.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<style type="text/css">
+body{
+	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+}
+*  {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	-webkit-box-sizing: border-box;
+}
+
+.sandbox {
+	padding:200px 0;
+	position: relative;
+	z-index: 999;
+	pointer-events: none;
+}
+
+#animate {
+	text-align: center;
+	background: -webkit-linear-gradient(-45deg, #A0E021, #85B820 50%, #7EAE20 50%), -webkit-linear-gradient(#234,#345,#234);
+	padding: 40px 10px;
+	width: 300px;
+	height:120px;
+	color: #fff;
+	text-shadow: 0 0 1px #F5E9BC;
+	margin: 0 auto;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size:32px;
+	box-shadow: 0 0 7px 3px #5D8A04, inset 0 0 0 1px rgba(180,255,255,.2), inset 0 1px 0 rgba(255,255,255,.2), 0 0 0 1px #012;
+	
+	-webkit-backface-visibility: hidden;	
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: .2s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+}
+
+.control{
+	width:800px;
+	margin:0 auto;
+	text-align:center;
+}
+.btn{
+	font-size:14px;
+	padding:5px 10px;
+	margin: 0px 3px;
+	border-radius: 3px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	background: #7EAE20;
+	cursor: pointer;
+}
+.btn:hover{
+	background: #9CDA21;
+	color: #3B5902;
+}
+</style>
+
+<body>
+
+<div class="sandbox">
+    <div id="animate">
+        <p>Hello World!</p>
+    </div>
+</div>
+
+<div class="control">
+<a class="btn" data-test="shake">shake</a>
+<a data-test="fadeIn" class="btn">fadeIn</a>
+<a data-test="fadeOut" class="btn">fadeOut</a>
+<a data-test="fadeInUp" class="btn">fadeInUp</a>
+<a data-test="fadeOutDown" class="btn">fadeOutDown</a>
+<a data-test="bounceIn" class="btn">bounceIn</a>
+<a data-test="bounceOut" class="btn">bounceOut</a>
+<a data-test="rotateIn" class="btn">rotateIn</a>
+<a data-test="rotateOut" class="btn">rotateOut</a>
+</div>
+
+<script type="text/javascript">
+	function testAnim(x) {
+		$('#animate').removeClass().addClass(x);
+		var wait = window.setTimeout( function(){
+			$('#animate').removeClass()},
+		1300);
+	}
+
+	$(document).ready(function(){
+		$('a[data-test]').click(function(){
+			var anim = $(this).attr('data-test');
+			testAnim(anim);
+		});
+	}); 
+
+</script>
+</body>
+</html>
+

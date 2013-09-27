@@ -1,0 +1,70 @@
+<script src="select.js" type="text/javascript"></script>
+<div id="lsearch">
+	<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">综合</a></li>
+				<li><a href="#tabs-2">银行</a></li>
+				<li><a href="#tabs-3">基金</a></li>
+				<li><a href="#tabs-4">保险</a></li>
+				<li><a href="#tabs-5">证券</a></li>
+			</ul>
+			<div id="tabs-1">
+				<form>
+				<div id="shouyi">
+				<label>预期收益</label>
+					<dl>
+						<dt>保本型</dt>
+						<dd>5%</dd>
+						<dd>6%</dd>
+						<dd>7%</dd>
+						<dd>8%</dd>
+						<dd>9%</dd>
+						<dd>10%</dd>
+					</dl>
+				</div>
+				<div id="period">
+				<label>委托期限</label>
+				<dl>
+					<dt>短期型</dt>
+					<dd>一个月</dd>
+					<dd>二个月</dd>
+					<dd>三个月</dd>
+					<dd>四个月</dd>
+				</dl>
+				</div>
+				<input type="text" name="keyword" value="" />
+				<input type="submit" name="submit" value="搜索" />
+				</form>
+			</div>
+			<div id="tabs-2">
+				<form action="aaa.jsp">
+				<label name="2">投资类型</label>
+				<dl>
+					<dt>保本型</dt>
+					<dd>5%</dd>
+					<dd>6%</dd>
+					<dd>7%</dd>
+					<dd>8%</dd>
+					<dd>9%</dd>
+					<dd>10%</dd>
+				</dl>
+				<label name="3">投资类型</label>
+				<dl>
+					<dt>保本型</dt>
+					<dd>5%</dd>
+					<dd>6%</dd>
+					<dd>7%</dd>
+					<dd>8%</dd>
+					<dd>9%</dd>
+					<dd>10%</dd>
+				</dl>
+				<input type="hidden" name="some_name" value="" />
+				<input type="text" name="keyword" value="" />
+				<input type="submit" name="submit" value="搜索" />
+				</form>
+			</div>
+			<div id="tabs-3">3</div>
+			<div id="tabs-4">4</div>
+			<div id="tabs-5">5</div>
+		</div>
+</div>

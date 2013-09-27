@@ -1,0 +1,71 @@
+/* CSS Document */
+ul{ padding:0; margin:0;}
+#wrapper{margin:0 auto; width:950px;}
+#header{ width:950px; margin-top:30px;}
+#header h1{ float:left; width:400px; height:48px;}
+#header .right{ float:right; color:#4d4490;margin-top: 30px;}
+#header .right a{padding:0 5px;}
+/*注册表单*/
+#reg{ width:950px; margin-top:10px;}
+#reg .hd{ border:1px solid #b3a8d9;}
+#reg .hd ul{ height:33px; padding-left:10px; background:#f6f4fc; overflow:hidden;}
+#reg .hd ul li{ float:left; margin-left:5px; line-height:33px;}
+#reg .hd ul li span{ float:left; width:16px; height:33px; background:url(../images/emailA.gif) 0 10px no-repeat; text-align:center; color:#fff; font-family:Arial, Helvetica, sans-serif;}
+#reg .hd ul li img{ float:left; margin-top:13px;}
+#reg .hd ul li .nBg{ float:left; width:16px; height:33px; background:url(../images/emailB.gif) 0 10px no-repeat; text-align:center; color:#fff; margin-right:5px;}
+#reg .hd ul li strong{ float:left; margin-left:5px; display:inline; margin-top:2px; color:#4d4490;}
+#reg .center{ border:#b3a8d9 solid 1px; border-top:none; padding:40px 0 20px 0;}
+#reg .center ul{ width:670px; margin:0 auto;}
+
+/*表单样式*/
+.formul{ height:auto; clear:both;}
+.formul li{ height:45px;; clear:both; vertical-align:bottom;}
+.formul li.type{ margin-bottom:20px;border:#b6e0f8 dashed 1px; padding:10px; background:#f6f4fc; font-size:14px; height: auto;}
+.formul li.type label{ width:60px; font-family:tahoma; vertical-align:middle; margin-left:5px;}
+.formul li .label{ float:left; width:110px; font-size:14px; line-height:25px;}
+.formul li .label em{ display:inline-block; width:8px; color:#ff4400; font-weight:bold;}
+.formul li .input{ float:left; padding-left:25px; width:218px;}
+.formul li.btn{ padding-left:125px;}
+.formul li.btn .reg_btn {background:url(../images/reg_btn.png) no-repeat; border:none; color:#fff; width:189px; height:27px; font-weight:bold; font-size:14px; cursor:pointer;}
+
+.formul li .box{ font-family:tahoma; font-size:14px; width:212px; height:20px; line-height:20px; color:#666;}
+.formul li .boxA{font-family:tahoma; width:60px; height:18px; line-height:18px; color:#666; font-size:14px;}
+.formul li .selectA{font-family:tahoma; font-size:14px; width:70px; height:25px; line-height:25px; color:#666;}
+/*表单输入正确和错误*/
+.formmsg_right{background:url(../images/right.gif) 5px 7px no-repeat;}
+.formmsg_wrong{background:url(../images/wrong.gif) 5px 7px no-repeat;}
+/*表单右侧提示*/
+.form_righttip{
+	float:left;
+	display:none;
+	padding-left:6px;
+	margin-left:10px;
+	width:300px;
+	background:url(../images/icon_msgarrow.gif) 0 6px no-repeat;
+	line-height:18px;
+	font-size:12px;
+}
+.form_righttip .line{ 
+	background-color:#cfccf7;
+	margin:0 1px; 
+	height:1px; 
+	overflow:hidden;
+}
+.form_righttip p{
+	background-color:#cfccf7; 
+	color:#3b2f6d; 
+	padding:2px 5px;
+	line-height:16px;
+	margin:0;
+}
+/*注册协议*/
+#agreement{border: 1px solid #7E9DB9; width:700px; margin: 10px auto 0; padding:10px;overflow-y: scroll; height: 150px; margin-top:40px;}
+#agreement h3{ text-align:center; margin-bottom:10px;}
+#agreement p{ text-indent:2em;}
+#footer{font-family:Arial; width:950px; text-align:center; border-top:#b3a8d9 solid 1px; padding-top:10px; margin-top:30px; padding-bottom:10px;}
+/*注册成功*/
+#success{ width:294px; height:293px; margin:0 auto; padding:40px 20px 0 240px; font-size:14px; line-height:30px;background:url(../images/truebg.jpg) no-repeat;}
+#success .purple{ font-size:16px; line-height:22px; margin-bottom:5px; display:inline-block;}
+#success  p{ margin-top:5px; padding-left:120px;}
+.btn6_01{ width:115px; height:27px; line-height:27px; font-size:14px; color:#fff; font-weight:bold; background: url(../images/btn.png) 0 0; border:none; cursor:pointer;}
+#success input{ margin-bottom:8px;}

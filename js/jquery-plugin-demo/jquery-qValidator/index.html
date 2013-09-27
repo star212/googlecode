@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qValidator验证插件</title>
+	<script src="../../lib/jquery-1.6.1.min.js"></script>
+	<script src="bootstrap-twipsy.js"></script>
+	<script src="jquery.qValidator.beta.js"></script>
+	<link rel="stylesheet" href="twispy.css" type="text/css" />
+	<style>
+		input {
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<form action="index_submit" method="post" accept-charset="utf-8">
+	<input type="text" value="" class="required number" name="title" data-title="标题"/>
+	<input type="radio" value="" />
+	<input type="checkbox" value="" />
+	<textarea name="txtarea" rows="8" cols="40" class="required" data-title="备注"></textarea>
+	<p><input type="submit" value="Continue &rarr;" /><input type="button" value="取消" /><input type="reset" value="充值" /></p>
+	</form>
+	<script type="text/javascript">
+		$(function(){
+			$("form").qValidator();
+		})
+	</script>
+</body>
+</html>

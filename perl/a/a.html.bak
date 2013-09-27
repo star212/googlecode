@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>perl文件处理</title>
+	<script src="js/index.js"></script>
+	<script src="js/jquery.tabs.js"></script>
+	<link rel="stylesheet" href="http://res.6677bank.com/min/f=/css/index.css,/css/global.css" type="text/css"/>
+</head>
+<body>
+	<div id="cc">
+		
+	</div>
+</body>
+</html>

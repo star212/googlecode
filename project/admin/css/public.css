@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	width:100%;
+	color:#3e3e3e;
+	font:12px/1.5 Arial,"\5b8b\4f53",sans-serif;
+}
+body,ul,li,dl,dd,dt,p,h1,h2,h3,h4,form,table,th,td{
+	margin:0; 
+	padding:0;
+}
+h3{ 
+	font-size:14px;
+}
+img { 
+	border:none;
+	vertical-align:middle;
+}
+ul,li { 
+	list-style:none;
+}
+.red{ 
+	color:#ff4400
+}
+.blue{ 
+	color:#0955EF;
+}
+.green{ 
+	color:#27AC03;
+}
+.purple{ 
+	color:#4d4490;
+}
+a{
+	color:#4d4490; 
+	text-decoration:none;
+	outline: none;
+}
+a:hover {
+	color:#ff4400; 
+	text-decoration:underline;
+}
+.fl{ 
+	float:left;
+}
+.fr{ 
+	float:right;
+}
+.cl{ 
+	clear:both;
+}
+.hide{ 
+	display:none;
+}
+table{
+	width:100%;
+	border-collapse:collapse;
+} 
+select{ 
+	margin: 0;
+	padding: 1px 0;
+	height:22px;
+	vertical-align: middle;
+}
+input{
+	vertical-align:middle;
+}
+.textinput{
+	vertical-align:middle; 
+	width:120px;
+}
+.btninput02{ 
+	background:url(../images/btninput02.jpg) no-repeat; 
+	border:none;
+	width:69px; 
+	height:27px; 
+	color:#fff; 
+	font-weight:bold; 
+	font-size:14px; 
+	line-height:27px; 
+}
+.btninput04{ 
+	background:url(../images/btninput04.jpg) no-repeat; 
+	border:none;
+	width:100px; 
+	height:27px; 
+	color:#fff; 
+	font-weight:bold; 
+	font-size:14px; 
+	line-height:27px; 
+}

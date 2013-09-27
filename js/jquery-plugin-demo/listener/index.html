@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax长轮询监听器</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script src="jquery.listener.js"></script>
+</head>
+<body>
+	<div id="listener"></div>
+	<script type="text/javascript">
+		$("#listener").listener({
+			url: "msgsrv.php",
+			timeout: 5000,
+			callback: function(data){
+				this.html(data);
+			}
+		});
+	</script>
+</body>
+</html>

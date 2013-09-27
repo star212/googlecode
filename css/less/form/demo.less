@@ -1,0 +1,77 @@
+@import '../../global';
+@import '../../component/base/less/base';
+@import '../../component/btn/less/btn';
+@import 'less/form';
+
+//demo的布局样式
+* {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+fieldset {
+    border:0;
+}
+body {
+    font-size: 16px;
+}
+.c-form {
+    label {
+    }
+    .field {
+        display: -webkit-box;
+        display: box;
+        margin-top: 20px;
+    }
+    .bf1 {
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        display:block;
+    }
+    span {
+        text-align:right;
+    }
+}
+#tbh5v0 {
+    .screen-wrap {
+        font-family: '微软雅黑';
+        float:left;
+        background-color:@standard-bg-color;
+        
+        &.fullscreen {
+            #tbh5v0.c-base-page-padding;
+            min-width: 300px!important;
+            min-height: 460px!important;
+        }
+        
+        &.landscape {
+            #tbh5v0.c-base-page-padding;
+            min-width: 460px!important;
+            min-height: 320px!important;
+        }
+        
+        .title {#tbh5v0.c-base-title-text; margin:20px 10px 30px 10px;}
+        section {
+            #tbh5v0.c-base-list-space;
+            .item {float:left;border:1px solid #666;}
+            p {#tbh5v0.c-base-line-space;}
+            ul li {#tbh5v0.c-base-group-list-space;}
+            &.bordered {border:1px solid #333;}
+            
+            &.standard-bg-color span {background-color:@standard-bg-color;}
+            &.standard-main-color span {background-color:@standard-main-color;}
+            &.standard-sub-color1 span {background-color:@standard-sub-color1;}
+            &.standard-sub-color2 span {background-color:@standard-sub-color2;}
+            &.standard-linear span {#tbh5v0.c-base-linear;}
+            
+            &.title-text *{#tbh5v0.c-base-title-text;}
+            &.tab-text *{#tbh5v0.c-base-tab-text;}
+            &.tab-highlight-text *{#tbh5v0.c-base-tab-highlight-text;}
+            &.group-list-text *{#tbh5v0.c-base-group-list-text;}
+            &.p-title-text *{#tbh5v0.c-base-p-title-text;}
+            &.p-main-text *{#tbh5v0.c-base-p-main-text;}
+            &.p-sub-text *{#tbh5v0.c-base-p-sub-text;}
+            &.append-text *{#tbh5v0.c-base-append-text;}
+            &.em-text *{#tbh5v0.c-base-em-text;}
+            &.link-text *{#tbh5v0.c-base-link-text;}
+        }
+    }
+}

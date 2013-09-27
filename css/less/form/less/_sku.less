@@ -1,0 +1,73 @@
+
+#tbh5v0 {
+    //“套餐一，套餐二”的样式
+    //w: 宽度
+    //h: 高度
+    //lh: 行高
+	/*.tmall{
+		 border-color:#970101;
+		 &.selected {
+            span {
+				background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDYvMDcvMTIXz7qOAAABKklEQVQ4ja3UPW7CMBgG4PeLKmWq5Kg9ABsjXCEX4AJd4hyBG3ADNncK5go9AO7UqYPVqSwI9gxWO2X6OjXKj0MSyCtZlv8eWbZlYmZMldcgEADeg6lBAItJ0CoIAHejTfBu1AfehXaBN6PXwJvQPnA0OgQchfaBj7PZOLQPnCcJXk4nzJMEAPAwBgyFQOFcC4yzDADK+upOq2C822FlDEIhvGAtzOwtikgoIquI+Ftr/k9uLWdRxAcpuZmDlKyI+sEsiji3trb453zuBBURU/Pr811KKARWxuBp4X9JJk1x1Lps186065YL5/AWx/i9XFrgx3pdA2to37MpnMPnZlPrO+73+NpuW3ODIWCJaA2TpiVopPTOI0U0CKzmeblEbm3nOCkiOwYckj9rtNJlHLXDQAAAAABJRU5ErkJggg==);
+			}
+		}
+	}*/
+    .c-form-sku(@w: 78px, @lh: 33px, @h: 33px) {
+        width: @w;
+        border:solid 1px #D4D5D6;
+        height: @h - 6;
+        line-height: @lh - 6;
+        display:inline-block;
+        position:relative;
+        text-align:center;
+        margin-right: 12px;
+        background-color: #fff;
+        text-decoration: none;
+        vertical-align: top;
+        #tbh5v0 > .c-base-p-main-text;
+        padding: 3px;
+        letter-spacing: 1px;
+        &.selected {
+            span {
+                position:absolute;
+                display:block;
+                height: 21px;
+                width: 21px;
+                -webkit-background-size: 21px 21px;
+                //images/checked_3.png
+                background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDYvMDcvMTIXz7qOAAABDklEQVQ4ja3UMU7DMBiG4TcVYwaPjEg9ABwByUiMvUJ6BIRgZg5CYmMkIFYOkE49Qg4AAjbYMmT/GEyrhNhN0uSTLNvJr0d2bCWSxGQ5iwywnk0NAsfToDUQYDz6DxyPesBxaADcH90B7od2gMPRHuAwtAs8PBqIdoHnCbx8uB44GATGBqqyDV49uvFfv3uldfA6g7s1xMYP1iPJ3yxGlkIWKc+0zVshLYyUJmolTSRLD3BhHFTP92cQlEVR69fnO5TYuK3PAzfpdgl5tp02v2nolKsSLk/h56sNPlw0wCbadW2qEp5vms9WT/B63yqd9QI3yTO31Q2YJt6ySJZ+YD3zE3gvgq8jWYpBYI/8AtDwxY1pBJN7AAAAAElFTkSuQmCC);
+                right:-1px;
+                bottom:-1px;
+            }
+            border:solid 2px @standard-main-color;
+            width: @w - 2px;
+            height: @h - 8px;
+            line-height: @lh - 8;
+        }
+        &.disabled {
+            color: #999;
+        }
+    }
+    .c-form-sku-2 {
+        .c-form-sku(38px);
+    }
+    .c-form-sku-5 {
+        .c-form-sku(88px);
+    }
+    .c-form-sku-9 {
+        .c-form-sku(142px);
+    }
+    .c-form-sku-18 {
+        .c-form-sku(142px,19px);
+        &.selected {
+            line-height: 13px;
+        }
+    }
+    //.c-form-sku-unknown {
+    //    .c-form-sku(142px,1.2);
+    //    display: -webkit-box;
+    //    -webkit-line-clamp: 2; 
+    //    -webkit-box-orient: vertical;
+    //    overflow:hidden;
+    //}
+}

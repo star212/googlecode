@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数银在线代理商管理系统-top</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<style>
+<!--
+#header{
+	background:#eeecf7 url(images/topbg.gif) repeat-x;
+	height:83px;
+}
+#header h1{ 
+	float:left; 
+	margin:26px 0 0 16px;
+}
+#header .header_r{ 
+	float:right; 
+	display:inline;
+	margin:15px 20px 0 0;
+	width:67%;
+}
+#header .header_r p{float:right;}
+#header .header_btn{
+	position:absolute;
+	top:47px;
+	right:20px;
+}
+#header .header_btn a{
+	display:inline-block;
+	background:url(images/headerbtn.gif) no-repeat;
+	width:57px;
+	height:17px;
+	line-height:17px;
+	text-align:center;
+	margin-left:10px;
+	text-decoration:none;
+}
+#nav{
+	background:url(images/navbg.gif) repeat-x;
+	border-top:solid 2px #a5a0d8;
+	border-bottom:solid 1px #c4c0e3;
+	height:30px;
+	line-height:30px;
+}
+#nav span{
+	display:block;
+	float:left;
+	width:176px;
+	padding-left:15px;
+	color:#fedc6e;
+}
+#nav li{
+	float:left;
+}
+#nav li a{
+	display:inline-block;
+	padding:0 20px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+}
+#nav li.selected a,#nav li a:hover{
+	background:#b6b0dc;
+	color:#000;
+}
+-->
+</style>
+<script src="scripts/jquery-1.4.4.min.js"></script>
+<script>
+function navClick(arg1,arg2,arg3){
+	window.parent.leftFrame.location.href=arg1;
+	//window.parent.mainFrame.location.href=arg2;
+	//var nowtext = arg3;
+	//document.getElementById('js_nowtitle').innerHTML = "当前操作 : "+nowtext;
+}
+
+</script>
+</head>
+
+<body>
+<div id="header">
+	<h1><img src="images/logo.jpg" width="295" height="45" alt="数银在线代理商系统" /></h1>
+	<div class="header_r">
+		<p>欢迎您，<strong>rain321321</strong>！&nbsp;&nbsp;&nbsp;上传客户总数：<span class="red">300</span>笔&nbsp;&nbsp;&nbsp;成功放款总数：<span class="red">3</span>笔&nbsp;&nbsp;&nbsp;代理热线：<strong>0571-34556566</strong></p>
+        <div class="header_btn"><a href="">返回首页</a><a href="">安全退出</a></div>
+    </div>
+    <div class="cl"></div>
+</div>
+<ul id="nav">
+    <span id="js_nowtitle">当前操作：客户管理</span>
+    <li class="selected"><a href="#"onclick="navClick('customers.html','main.html','客户管理')">客户管理</a></li>
+    <li><a href="#" onclick="navClick('results.html','monthsbill.html','月对账单')">业绩查询</a></li>
+    <li><a href="#" onclick="navClick('parameters.html','commissionset.html','佣金设置')">参数管理</a></li>
+    <li><a href="#" onclick="navClick('manage.html','manage/agentslist.html','代理商列表')">系统管理</a></li>
+</ul>
+</body>
+</html>

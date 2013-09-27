@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js验证</title>
+	<style type="text/css" media="screen">
+		.bg {
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+
+$.validator.setDefaults({
+   debug: true
+})
+$.validator.addMethod("mobile", function(value) {
+		return new RegExp("0?(13|15)[0-9]{9}$").test(value);
+	}, '请输入手机号码');
+
+
+    $("#myform").validate({
+		rules: {
+			username: {
+				required: true,
+				minlength: 2
+			},
+			email: "mobile"
+		},
+		messages: {
+			username: {
+				required: "不能为空",
+				minlength: "长度要大于2字符"
+			}
+		},
+highlight: function(element, errorClass) {
+     
+	$(element).parent("p").addClass("bg");
+  },
+  unhighlight: function(element, errorClass) {
+	$(element).parent("p").removeClass("bg");
+  },
+errorPlacement: function(error, element) {
+				error.appendTo( element.parent("p") );
+			}
+  
+		
+		
+		
+	});
+});
+	
+	</script>
+</head>
+<body>
+<form id="myform" action="index.html" method="post">
+
+	<p><input name="username" type="text" /></p>
+	
+	<input name="pwd" type="text" value="aa"/><br />
+	<p><input name="email" type="text" /></p><br />
+	<input type="submit" value="提交" />
+</form>
+
+</form>
+</body>
+</html>

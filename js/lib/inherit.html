@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+		<div class="name a1" id="bb">bb</div>
+		<p>cc</p>
+		<ul><li>dd</li></ul>
+		<script type="text/javascript">
+			function classA(oname,ocolor) {
+				this.name = oname;
+				this.color = ocolor;
+			}
+
+			function classB(oname,ocolor) {
+				classA.apply(this,arguments);
+			}
+			var b = new classB("cc","wthie");
+			console.log(b.name);
+			
+		</script>
+</body>
+</html>
