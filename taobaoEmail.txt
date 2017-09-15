@@ -1,5 +1,0 @@
-email.alibaba-inc.com
-smtp: 587
-pop3: 995
-
-要求安全链接ssl
